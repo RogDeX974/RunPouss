@@ -1,0 +1,19 @@
+{
+  "name": "runpouss",
+  "version": "1.0.0",
+  "description": "Site Web (navigation et forum) pour le partage de la passion et de la connaissance sur le monde de la motocyclette (scoot, 50cc, 125cc, supersport, superbike, proto et divers)",
+  "main": "index.js",
+  "scripts": {
+    "test": "./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RogDeX974/RunPouss.git"
+  },
+  "author": "rogdex974",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RogDeX974/RunPouss/issues"
+  },
+  "homepage": "https://github.com/RogDeX974/RunPouss#readme"
+}
