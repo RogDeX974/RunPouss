@@ -1,6 +1,6 @@
 import "./styles.css";
 
-export default function App() {
+function App() {
     return (
         <div className="App">
             <h1>Test grand</h1>
