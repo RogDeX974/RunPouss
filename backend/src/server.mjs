@@ -54,5 +54,8 @@ app.get('/error', (req, res) => {
 
 
 server.listen(port, () => {
-    console.log(`Site Web accessible : http://localhost:${port}`);
+    console.log(`
+|---------------------------------------------|
+| Site Web accessible : http://localhost:${port} |
+|---------------------------------------------|`);
 });
