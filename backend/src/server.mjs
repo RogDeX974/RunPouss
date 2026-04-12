@@ -1,4 +1,5 @@
 
+// Express
 import http from "http";
 import { dirname, join } from "path";
 import express from "express";
@@ -6,6 +7,16 @@ import fs from "node:fs";
 import { Server } from 'socket.io';
 import { fileURLToPath } from "url";
 
+
+// UNUSED ! Webpack Middleware (webpack-dev-server) : https://dev.to/riversun/how-to-run-webpack-dev-server-on-express-5ei9
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import config from '../../webpack.config.mjs';
+
+const devServerEnabled = true;
+
+
+// Application Express
 const app = express();
 const router = express.Router();
 const server = http.createServer(app);
@@ -23,6 +34,7 @@ const mockResponse = {
     foo: 'bar',
     bar: 'foo'
 };
+
 
 
 io.on('connection', (socket) => {

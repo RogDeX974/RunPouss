@@ -16,6 +16,7 @@ const __dirname = path.dirname(__filename);
 
 export default {
     entry: './frontend/src/index.js',
+    mode: 'development',
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js'
@@ -24,7 +25,7 @@ export default {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader:'babel-loader'
@@ -32,8 +33,22 @@ export default {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    'style-loader', 
+                    'css-loader',
+                    {
+                        loader: "postcss-loader",
+                        options: { postcssOptions: { config: path.resolve(__dirname, "postcss.config.cjs") }}
+                    }
+                ],
             }
         ]
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, "frontend", "src"),
+        },
+        compress: true,
+        port: 7000,
     }
 };
