@@ -50,9 +50,10 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(express.static(DIST_DIR));
 
-app.get('/api', (req, res) => {
+/*app.get('/api', (req, res) => {
     res.send(mockResponse);
-});
+});*/
+
 
 app.get('/', (req, res) => {
     res.sendFile(HTML_FILE);
@@ -61,6 +62,10 @@ app.get('/', (req, res) => {
 
 app.get('/error', (req, res) => {
     res.send('Une erreur est survenue !');
+})
+
+app.get('/login', (req, res) => {
+    res.send("Page de login");
 })
 
 

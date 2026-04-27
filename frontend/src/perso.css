@@ -1,0 +1,88 @@
+
+/* ### WRAPPER (grid - Check App.js) ### */
+.global-page {
+    display: grid;
+    gap: 5px;
+    grid-template-areas:
+        "header"
+        "nav"
+        "cont"
+        "footer";
+}
+
+
+
+/* ########## HEADER ### */
+
+.global-page > .header-grid {
+    grid-area: header;
+}
+
+label {
+    display: block;
+}
+
+input[type=text] {
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 125px #6795a8c3;
+    opacity: 0.8;
+}
+
+input[type=text]::placeholder {
+    font-weight: bold;
+    opacity: 0.3;
+    color: rgb(86, 74, 52);
+}
+
+
+
+/* ########## NAVBAR ### */
+
+.global-page > .navbar-grid {
+    grid-area: nav;
+}
+
+.select-bar li {
+    display: inline;
+}
+
+/*
+.select-bar li+li:before {
+    color: white;
+    padding: 4px;
+    content: "/\00a0";
+}
+*/
+
+
+.header-links {
+    margin: 0 0 auto;
+    padding: 2px 10px;
+    font-size: 1.25em;
+}
+
+
+
+/* ########## CONTENT ### */
+
+.global-page > .content-grid {
+    grid-area: cont;
+}
+
+
+
+/* ########## FOOTER ### */
+
+.global-page > .footer-grid {
+    grid-area: footer;
+}
+
+.footer-bar {
+    display: inline;
+}
+
+.footer-links {
+    margin: 0 0 auto;
+}

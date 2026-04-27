@@ -2,18 +2,33 @@
 import React from "react";
 import './styles.css';
 
-import Header from './components/layouts/Header.jsx';
+import PLPage from "./components/pages/PLPage.jsx";
+
+import Home from './components/pages/Home.jsx';
+
+
+import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 
 function App() {
 
-    
+    /*React.useEffect(() => {
+        fetch('/')
+        .then(response => response.json())
+    }, []);*/
 
     return (
-        <div className="App">
-            <Header />
-            <h1>Test grand</h1>
-            <h2>Test petit</h2>
-        </div>
+        <BrowserRouter>
+            <PLPage>
+                <Routes>
+                    {/* Routes Header */}
+                    <Route path='/' element={<Home />} />
+
+                    {/* Routes Footer */}
+                    {/*<Route path='/a-propos' element={<About />} />
+                    <Route path='/contact' element={<Contact />} />*/}
+                </Routes>
+            </PLPage>
+        </BrowserRouter>
     );
 }
 
