@@ -208,7 +208,7 @@ html, body, #root {
 
 /* Contenu primaire (commun à toutes les pages) */
 
-.main-content {
+.main-viewport {
     /*float: left;*/
     margin: 0 auto;
     width: 90%; height: auto;
@@ -218,9 +218,13 @@ html, body, #root {
 
 /* MainHome.jsx (page principale) + MainForum.jsx */
 
-.main-content main > div {
-    border: 3px solid blue;
+.content {
+    border: 2px dashed brown;
     height: var(--main-content-height);
+    margin: 0;
+    padding: 0 2.25%;
+    width: 67%;
+    align-content: baseline;
 }
 
 
@@ -250,15 +254,3 @@ input[type=text]::placeholder {
 
 /* ############# */
 
-
-/* ### VUE PRINCIPALE ### */
-
-.MainView {
-    margin: 0;
-    padding: 0 2.25%;
-    width: 67%;
-    align-content: baseline;
-    border: 2px dashed green;
-}
-
-/* ############# */

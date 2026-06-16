@@ -2,7 +2,6 @@
 import '../../perso.css';
 
 import MainContent from '../layouts/MainContent.jsx';
-import MainHome from '../layouts/MainHome.jsx';
 
 
 function Home() {
@@ -30,9 +29,7 @@ function Home() {
                 </div>
             </div>
 
-            <MainContent>
-                <MainHome />
-            </MainContent>
+            <MainContent />
             
         </div>
     )

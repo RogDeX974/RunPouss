@@ -3,14 +3,15 @@
 
 import '../../perso.css';
 
-import MainView from '../elements/MainView.jsx';
 
 function MainContent() {
     return (
-        <div className='main-content'>
+        <div className='main-viewport'>
             <main>
-                <MainView />
-            {/* Outlet + Routes vers MainHome, MainForum, MainConnexion, etc. */}
+                <div className="content">
+                Les actualités
+                {/* Outlet + Routes vers MainHome, MainForum, MainConnexion, etc. */}
+                </div>
             </main> 
         </div>
     )
