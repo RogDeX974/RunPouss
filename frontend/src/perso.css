@@ -1,13 +1,40 @@
 
+html, body, #root {
+    height: auto; overflow-x: hidden;
+    margin: 0;
+    /*background-color: var(--bg-primary);*/
+    background: linear-gradient(var(--bg-primary) 25%, black, var(--bg-secondary) 97% 100%);
+    
+}
+
+:root {
+    --bg-primary: #767676;
+    --bg-secondary: #513c65;
+    --primary-color: #4c2ed3;
+
+    --global-b-rad: 8px;
+
+    --main-padd: 2%;
+    --main-content-height: (
+        height: fit-content;
+    )
+}
+
+
 /* ### WRAPPER (grid - Check App.js) ### */
 .global-page {
     display: grid;
-    gap: 5px;
+    gap: 2.25px;
+
+    min-height: 100vh;
+    min-width: auto;
+
     grid-template-areas:
         "header"
         "nav"
         "cont"
         "footer";
+    grid-template-rows: auto auto 1fr auto;
 }
 
 
@@ -16,24 +43,33 @@
 
 .global-page > .header-grid {
     grid-area: header;
+    grid-template-columns: 1fr auto 1fr;
 }
 
-label {
-    display: block;
+
+.header-brand {     /* Associé au bandeau de titre */
+    grid-column: 2;
+    justify-self: center;
 }
 
-input[type=text] {
-    width: fit-content;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0px 0px 125px #6795a8c3;
-    opacity: 0.8;
+.header-search {    /* Associé à SearchBar */
+    grid-column: 3;
 }
 
-input[type=text]::placeholder {
-    font-weight: bold;
-    opacity: 0.3;
-    color: rgb(86, 74, 52);
+
+
+.login-section {
+    color: whitesmoke;
+    font-size: large;
+    -webkit-text-stroke: 1px;
+}
+
+.signin {
+    content: "";
+}
+
+.signup {
+    content: "";
 }
 
 
@@ -67,8 +103,24 @@ input[type=text]::placeholder {
 
 /* ########## CONTENT ### */
 
+/* Disposition générale du contenu principal */
+
 .global-page > .content-grid {
     grid-area: cont;
+}
+
+.content-disposition {
+    margin: 1em auto;
+    width: 75%;
+    height: auto;
+    border-radius: 50px;
+
+    
+}
+.content-disposition > div {
+    border-radius: 15px;
+    opacity: 0.75;
+    box-shadow: 0 0 50px -15px black;
 }
 
 
@@ -86,3 +138,127 @@ input[type=text]::placeholder {
 .footer-links {
     margin: 0 0 auto;
 }
+
+
+
+
+/* ----------------------------------------------------------------------- Contenu des pages --- */
+
+
+/* ###### Home.jsx ### */
+
+
+/* # Carousel # */
+
+.carousel {
+    margin: 1em auto;
+    padding: 0;
+    border-radius: var(--global-b-rad);
+    width: 100%; /*width: fit-content;*/
+    overflow: hidden;
+    box-shadow: 0 0 300px 1px #1a1a1a;
+    transform: scale(0.9); 
+    /*border: 5px solid red;*/
+}
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.group {
+    display: flex;
+    width: max-content;
+    gap: 1em;
+    /*border: 2px solid green;*/
+}
+
+.track {
+    display: flex; 
+    width: 1372px;                                                              
+    align-items: center;
+    justify-content: flex-start; /*justify-content: center;*/
+    animation: scroll 30s infinite linear;
+    gap: 1em;
+    /* width: calc(100% - (100% - 3*411px) + 39.2px - 5px); */ 
+    /*flex: 0 0 auto;*//* flex: none; */
+    /*border-color: #4c2ed3;border-style: ridge;border-width: 5px; border: 2px solid blue;*/
+}
+
+.card {
+    flex: 0 0 auto;
+    align-items: center; 
+    justify-content: center; 
+    width: 327px;                                                                               
+    height: 5em;
+    background: cornflowerblue;
+    font-size: 1rem;
+    border-radius: var(--global-b-rad);
+    text-align: center;
+    align-content: center;
+    box-shadow: 0 0 300px 1px #1a1a1a;
+    /*width: 289.35px; flex-shrink: 0;*//*flex: 0 0 411px;*/
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); } 100% { transform: translateX(-100%); } /* -1262.2px */
+}
+
+
+
+/* ----------------------------------------------------------------------- Disposition du contenu --- */
+
+/* Contenu primaire (commun à toutes les pages) */
+
+.main-content {
+    /*float: left;*/
+    margin: 0 auto;
+    width: 90%; height: auto;
+    border: 5px solid red;
+}
+
+
+/* MainHome.jsx (page principale) + MainForum.jsx */
+
+.main-content main > div {
+    border: 3px solid blue;
+    height: var(--main-content-height);
+}
+
+
+
+/* ----------------------------------------------------------------------- Elements --- */
+
+
+/* ### LABEL ### */
+
+label {
+    display: block;
+}
+
+input[type=text] {
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 125px #6795a8c3;
+    opacity: 0.8;
+}
+
+input[type=text]::placeholder {
+    font-weight: bold;
+    opacity: 0.3;
+    color: rgb(86, 74, 52);
+}
+
+/* ############# */
+
+
+/* ### VUE PRINCIPALE ### */
+
+.MainView {
+    margin: 0;
+    padding: 0 2.25%;
+    width: 67%;
+    align-content: baseline;
+    border: 2px dashed green;
+}
+
+/* ############# */

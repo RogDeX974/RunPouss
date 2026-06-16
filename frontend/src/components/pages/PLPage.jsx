@@ -3,25 +3,20 @@ import '../../perso.css';
 
 import Header from '../layouts/Header.jsx';
 import Navbar from "../layouts/Navbar.jsx";
+import Sidebar from "../layouts/Sidebar.jsx";
 import Footer from "../layouts/Footer.jsx";
+import { Outlet } from 'react-router-dom';
 
 
 function PLPage({ children }) {
     return (
-        
-        <div>
-            {/* Prime Layout Page */}
-
-            <div className='global-page'>
-                <div className="App">
-                    <Header />
-                    <Navbar />
-                    <h1>Test grand</h1>
-                    <h2>Test petit</h2>
-                    <Footer />
-                </div>
+        <div className='global-page'>   {/* Prime Layout Page */}
+            <Header />
+            <Navbar />
+            <div className="content-grid content-disposition">
+                <Outlet />
             </div>
-
+            <Footer />
         </div>
     )
 }

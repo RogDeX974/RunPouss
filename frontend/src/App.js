@@ -5,6 +5,7 @@ import './styles.css';
 import PLPage from "./components/pages/PLPage.jsx";
 
 import Home from './components/pages/Home.jsx';
+import Forum from './components/pages/Forum.jsx';
 
 
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
@@ -18,16 +19,18 @@ function App() {
 
     return (
         <BrowserRouter>
-            <PLPage>
-                <Routes>
+            <Routes>
+                <Route element={<PLPage />}>
+                
                     {/* Routes Header */}
                     <Route path='/' element={<Home />} />
+                    <Route path='/forum' element={<Forum />} />
 
                     {/* Routes Footer */}
                     {/*<Route path='/a-propos' element={<About />} />
                     <Route path='/contact' element={<Contact />} />*/}
-                </Routes>
-            </PLPage>
+                </Route>
+            </Routes>
         </BrowserRouter>
     );
 }
