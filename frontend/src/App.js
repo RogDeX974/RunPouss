@@ -8,7 +8,8 @@ import Home from './components/pages/Home.jsx';
 import Forum from './components/pages/Forum.jsx';
 
 
-import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Outlet, createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFoundPage from "./components/pages/NotFoundPage.jsx";
 
 function App() {
 
@@ -17,22 +18,31 @@ function App() {
         .then(response => response.json())
     }, []);*/
 
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route element={<PLPage />}>
-                
-                    {/* Routes Header */}
-                    <Route path='/' element={<Home />} />
-                    <Route path='/forum' element={<Forum />} />
 
-                    {/* Routes Footer */}
-                    {/*<Route path='/a-propos' element={<About />} />
-                    <Route path='/contact' element={<Contact />} />*/}
-                </Route>
-            </Routes>
-        </BrowserRouter>
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            Component: PLPage,
+            errorElement: <NotFoundPage />,
+            children: [
+                { index: true, Component: Home },
+                { path: "home", Component: Home },
+                { path: "forum", Component: Forum },
+            ],
+
+        },
+
+    ]);
+
+
+
+    return (
+        <RouterProvider router={router} />
     );
 }
+
+
+
+
 
 export default App;

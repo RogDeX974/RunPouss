@@ -3,13 +3,14 @@ html, body, #root {
     height: auto; overflow-x: hidden;
     margin: 0;
     /*background-color: var(--bg-primary);*/
-    background: linear-gradient(var(--bg-primary) 25%, black, var(--bg-secondary) 97% 100%);
+    background: linear-gradient(var(--bg-primary) 10%, white 60%, var(--bg-alternative) 97% 100%);
     
 }
 
 :root {
     --bg-primary: #767676;
     --bg-secondary: #513c65;
+    --bg-alternative: #51aad6;
     --primary-color: #4c2ed3;
 
     --global-b-rad: 8px;
@@ -19,6 +20,16 @@ html, body, #root {
         height: fit-content;
     )
 }
+
+ol ul li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
 
 
 /* ### WRAPPER (grid - Check App.js) ### */
@@ -119,7 +130,7 @@ html, body, #root {
 }
 .content-disposition > div {
     border-radius: 15px;
-    opacity: 0.75;
+    /*opacity: 0.75; opacity: 0.9;*/
     box-shadow: 0 0 50px -15px black;
 }
 
@@ -210,22 +221,28 @@ html, body, #root {
 
 .main-viewport {
     /*float: left;*/
-    margin: 0 auto;
-    width: 90%; height: auto;
-    border: 5px solid red;
+    margin: auto;
+    width: 92.5%; height: auto;
+    border: 2px solid red;
+    text-align: justify;
+}
+.main-viewport div > p {
+    padding: 1.25%;
 }
 
 
 /* MainHome.jsx (page principale) + MainForum.jsx */
 
-.content {
-    border: 2px dashed brown;
+.left-Div {
+    border: 2px dashed yellow;
+    border-radius: 5px;
     height: var(--main-content-height);
     margin: 0;
-    padding: 0 2.25%;
-    width: 67%;
+    padding: 0.5%;
+    /*width: 67%;*/ width: 75%;
     align-content: baseline;
 }
+
 
 
 

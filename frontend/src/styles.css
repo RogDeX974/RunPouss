@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+
+    .section-context {
+        @apply text-xl font-bold text-blue-600
+               m-2 pl-1 border-l-8 border-l-blue-400; 
+    }
+
+
+
+    .list-roll {
+        @apply flex flex-wrap justify-between;
+    }
+
+    .list-roll li {
+        @apply w-[47%] text-base/5 pb-3 mb-3 border-b-2;
+    }
+
+    .list-roll li:last-child {
+        @apply p-0 m-0 border-none;
+    }
+
+    .list-roll picture {
+        @apply float-left;
+    }
+
+
+    .list-roll-img {
+        @apply mr-2;
+    }
+
+}

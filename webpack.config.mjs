@@ -50,5 +50,6 @@ export default {
         },
         compress: true,
         port: 7000,
+        historyApiFallback: true,
     }
 };

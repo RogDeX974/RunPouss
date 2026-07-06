@@ -55,8 +55,10 @@ app.use(express.static(DIST_DIR));
 });*/
 
 
-app.get('/', (req, res) => {
+app.get(/(.*)/, (req, res) => {
     res.sendFile(HTML_FILE);
+    //res.render();
+    //res.sendStatus(200);
     /*res.status(200).send("Bonjour depuis le serveur !");*/
 });
 

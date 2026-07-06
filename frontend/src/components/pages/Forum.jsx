@@ -2,12 +2,16 @@
 import '../../perso.css';
 
 import MainContent from '../layouts/MainContent.jsx';
+import Carousel from '../elements/Carousel.jsx';
 
 
 function Forum() {
-    <div>
-        <MainContent />
-    </div>
+    return (
+        <>
+            <MainContent />
+            {/* <Form.jsx /> */}
+        </>
+    )
 }
 
 export default Forum;
