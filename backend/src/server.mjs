@@ -8,12 +8,29 @@ import { Server } from 'socket.io';
 import { fileURLToPath } from "url";
 
 
-// UNUSED ! Webpack Middleware (webpack-dev-server) : https://dev.to/riversun/how-to-run-webpack-dev-server-on-express-5ei9
+// Import des informations sur la base de données PostgreSQL
+import db from'./db.js';
+
+
+/* Récupération des variables d'environnement (dotenv)
+import dotenv from 'dotenv';
+dotenv.config();
+*
+*
+*/
+
+
+/* UNUSED ! Webpack Middleware (webpack-dev-server) : https://dev.to/riversun/how-to-run-webpack-dev-server-on-express-5ei9
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import config from '../../webpack.config.mjs';
 
 const devServerEnabled = true;
+*
+*
+*/
+
+
 
 
 // Application Express
@@ -55,12 +72,27 @@ app.use(express.static(DIST_DIR));
 });*/
 
 
-app.get(/(.*)/, (req, res) => {
-    res.sendFile(HTML_FILE);
-    //res.render();
-    //res.sendStatus(200);
-    /*res.status(200).send("Bonjour depuis le serveur !");*/
+
+
+
+app.get('/api/motos', async (req, res) => {
+
+    console.log("Tout va bien sur Terre!");
+    try {
+        const result = await db.query('SELECT * from test_motos');
+        console.log("Le test a fonctionné ! Voici le résultat : ", result.rows);
+        res.json(result.rows);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Erreur du serveur en récupérant les données !');
+    }
 });
+
+
+
+
+
+
 
 app.get('/error', (req, res) => {
     res.send('Une erreur est survenue !');
@@ -69,6 +101,16 @@ app.get('/error', (req, res) => {
 app.get('/login', (req, res) => {
     res.send("Page de login");
 })
+
+
+
+
+app.get(/(.*)/, (req, res) => {
+    res.sendFile(HTML_FILE);
+    //res.render();
+    //res.sendStatus(200);
+    /*res.status(200).send("Bonjour depuis le serveur !");*/
+});
 
 
 

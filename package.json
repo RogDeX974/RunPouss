@@ -20,7 +20,10 @@
   "bugs": {
     "url": "https://github.com/RogDeX974/RunPouss/issues"
   },
-  "workspaces":["backend", "frontend"],
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "homepage": "https://github.com/RogDeX974/RunPouss#readme",
   "devDependencies": {
     "@babel/core": "^7.29.0",
@@ -30,6 +33,7 @@
     "babel-loader": "^10.1.1",
     "css-loader": "^7.1.4",
     "html-webpack-plugin": "^5.6.6",
+    "pg-promise": "^12.7.0",
     "postcss": "^8.5.9",
     "postcss-loader": "^8.2.1",
     "react": "^19.2.4",
@@ -37,8 +41,8 @@
     "style-loader": "^4.0.0",
     "tailwindcss": "^3.4.19",
     "webpack": "^5.105.4",
-    "webpack-cli": "^7.0.2",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-cli": "^7.2.1",
+    "webpack-dev-server": "^6.0.0"
   },
   "dependencies": {
     "acorn": "^8.16.0",
@@ -53,7 +57,9 @@
     "chrome-trace-event": "^1.0.4",
     "clone-deep": "^4.0.1",
     "commander": "^2.20.3",
+    "cors": "^2.8.6",
     "cross-spawn": "^7.0.6",
+    "dotenv": "^17.4.2",
     "electron-to-chromium": "^1.5.322",
     "enhanced-resolve": "^5.20.1",
     "envinfo": "^7.21.0",
@@ -91,6 +97,7 @@
     "mime-types": "^2.1.35",
     "neo-async": "^2.6.2",
     "node-releases": "^2.0.36",
+    "nodemon": "^3.1.14",
     "p-limit": "^2.3.0",
     "p-locate": "^4.1.0",
     "p-try": "^2.2.0",

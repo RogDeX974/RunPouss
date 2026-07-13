@@ -61,6 +61,15 @@ function MainContent({props}) {
                                 </li>
                             </ul>
                             
+                            <div className='wide-img'>
+                                <a href='#'>
+                                    <picture>
+                                        <img className='wide-img' src="" alt="" width={600} height={300} />
+                                    </picture>
+                                    <h3></h3>
+                                    <p></p>
+                                </a>
+                            </div>
 
                         <p>
 
