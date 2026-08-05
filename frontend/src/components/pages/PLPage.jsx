@@ -10,7 +10,7 @@ import { Outlet } from 'react-router-dom';
 import Carousel from '../elements/Carousel.jsx';
 
 
-function PLPage({ children }) {
+function PLPage() {
     return (
         <div className='global-page'>   {/* Prime Layout Page */}
 

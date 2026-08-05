@@ -6,7 +6,7 @@
 
     .section-context {
         @apply text-xl font-bold text-blue-600
-               m-2 pl-1 border-l-8 border-l-blue-400; 
+               m-4 ml-0 pl-1 border-l-8 border-l-blue-400; 
     }
 
 

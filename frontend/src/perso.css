@@ -3,8 +3,13 @@ html, body, #root {
     height: auto; overflow-x: hidden;
     margin: 0;
     /*background-color: var(--bg-primary);*/
-    background: linear-gradient(var(--bg-primary) 10%, white 60%, var(--bg-alternative) 97% 100%);
+    /*background: linear-gradient(var(--bg-primary) 10%, white 60%, var(--bg-alternative) 97% 100%);*/
     
+    /*background: linear-gradient(var(--bg-primary) 5%, white 30% 90%, var(--bg-primary));*/
+    background-image: url('/home/drepower/Documents/RunPouss/frontend/src/assets/jpg/clouds.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 :root {
@@ -28,6 +33,15 @@ ol ul li {
 
 li {
     list-style: none;
+}
+
+img {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -111,6 +125,77 @@ li {
 }
 
 
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+nav a:hover, .dropdown:hover .dropbtn {
+    background-color: var(--bg-secondary);
+    border-radius: var(--global-b-rad);
+}
+
+.dropdown-content {
+    /*display: none;*/
+    position: absolute;
+    width: 100%;
+    left: -1%; top: 22.5%;
+    z-index: 20;
+    margin: 1%;
+    box-sizing: border-box;
+}
+
+/*.dropdown:hover .dropdown-content {
+    display: block;
+}*/
+
+.dropdown-content-row {
+    display: flex; margin: 0 auto;
+    width: 50%;
+    
+    border: 10px; padding-top: 2%;
+}
+
+.dropdown-content-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dropdown-content-column {
+    float: left; flex: 1;
+    width: 639.36px;
+    padding: 15px;
+    /*background-color: #d7a6ee;*/
+    background-color: var(--bg-secondary);
+    height: auto;
+}
+
+.dropdown-content-column a {
+    float: none;
+    color: black;
+    padding: 10px;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content-column:first-child {
+    border-radius: var(--global-b-rad) 0 0 var(--global-b-rad);
+}
+.dropdown-content-column:last-child {
+    border-radius: 0 var(--global-b-rad) var(--global-b-rad) 0;
+    border-right: none;
+}
+
 
 /* ########## CONTENT ### */
 
@@ -121,8 +206,8 @@ li {
 }
 
 .content-disposition {
-    margin: 1em auto;
-    width: 75%;
+    margin: 0em auto;
+    /*width: 75%;*/ width: 66.6%;
     height: auto;
     border-radius: 50px;
 
@@ -144,10 +229,17 @@ li {
 
 .footer-bar {
     display: inline;
+    padding: 20px 100px; /* Ici, 20px ne fonctionne pas */
 }
+.footer-bar a:not(:last-child):after {
+    content: " | ";
+    margin: 0 5px;
+}
+
 
 .footer-links {
     margin: 0 0 auto;
+    font-size: medium;
 }
 
 
@@ -162,7 +254,7 @@ li {
 /* # Carousel # */
 
 .carousel {
-    margin: 1em auto;
+    margin: 0.75em auto;
     padding: 0;
     border-radius: var(--global-b-rad);
     width: 100%; /*width: fit-content;*/
@@ -222,7 +314,7 @@ li {
 .main-viewport {
     /*float: left;*/
     margin: auto;
-    width: 92.5%; height: auto;
+    /*width: 92.5%;*/ height: auto; width: 100%;
     border: 2px solid red;
     text-align: justify;
 }
@@ -238,9 +330,20 @@ li {
     border-radius: 5px;
     height: var(--main-content-height);
     margin: 0;
-    padding: 0.5%;
+    padding: 1.25% 2%;
     /*width: 67%;*/ width: 75%;
     align-content: baseline;
+}
+
+
+.wide-img {
+    width: 100%;
+    border: 4px solid var(--bg-alternative);
+}
+.wide-img img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
 }
 
 
