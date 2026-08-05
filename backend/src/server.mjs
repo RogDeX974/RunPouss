@@ -79,7 +79,7 @@ app.get('/api/motos', async (req, res) => {
 
     console.log("Tout va bien sur Terre!");
     try {
-        const result = await db.query('SELECT * from test_motos');
+        const result = await db.query('SELECT * from test_motos__2');
         console.log("Le test a fonctionné ! Voici le résultat : ", result.rows);
         res.json(result.rows);
     } catch (err) {
