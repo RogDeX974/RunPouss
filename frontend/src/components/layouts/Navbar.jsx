@@ -3,63 +3,49 @@
 
 import '../../perso.css';
 import React from 'react';
-/*import { Link } from 'react-router-dom';*/
+import { Link } from 'react-router-dom';
+
+import { navbarDatas } from '../../data/navbarDatas.js';
 
 
-const DropdownContext = React.createContext({
-    open: false,
+const NavbarContext = React.createContext({
+    open: null,
     setOpen: () => {},
-})
+});
+
+const NavbarGroupContext = React.createContext(false);
 
 
 function Navbar () {
     return (
-        <>
-        <Dropdown>
-            <Dropdown.Button>Ouvrez!</Dropdown.Button>
-            <Dropdown.Content> 
-                <Dropdown.List>
-                    <Dropdown.Item>Item 1</Dropdown.Item>
-                    <Dropdown.Item>Item 2</Dropdown.Item>
-                </Dropdown.List>
-            </Dropdown.Content>
-        </Dropdown>
+        <Navbar.Menu>
+            {navbarDatas.map(({ menuLabel, href, categories }, index) => (
 
-        <Dropdown>
-            <Dropdown.Button>Découvrez?</Dropdown.Button>
-            <Dropdown.Content> 
-                <Dropdown.List>
-                    <Dropdown.Item>Item 3</Dropdown.Item>
-                    <Dropdown.Item>Item 4</Dropdown.Item>
-                </Dropdown.List>
-            </Dropdown.Content>
-        </Dropdown>
+                <Navbar.Group menuLabel={menuLabel} key={index}>
 
-            {/*
-            <>
-                    
-                        <button className='dropbtn header-links'>Contact</button>
-                            <div className='dropdown-content'>
-                                <div className='dropdown-content-row'>
-                                    <div className='dropdown-content-column'>
-                                        <h2>Test 1</h2>
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
-                                    <div className='dropdown-content-column'>
-                                        <h2>Test 2</h2>
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
-                                </div>
+                    <Navbar.Button href={href} hasDropdown={!!categories}>
+                        { menuLabel }
+                    </Navbar.Button>
 
-                            </div>
-            </>
-        */}
-        </>
-                    
+                    { categories && (
+                        <Navbar.Content>
+                            {categories.map(({ subLabel, submenus}, i) => (
+                                <Navbar.List key={i} title={subLabel}>
+                                    {submenus.map(({ productLabel }, j) => (
+                                        <Navbar.Item key={j}>
+                                            { productLabel }
+                                        </Navbar.Item>
+                                    ))}
+                                </Navbar.List>
+                            ))}
+                        </Navbar.Content>
+                    )}
+
+                </Navbar.Group>
+
+            ))}
+
+        </Navbar.Menu>           
     )
 }
 
@@ -67,45 +53,92 @@ function Navbar () {
 
 
 
-function Dropdown({children, ...props}) {
-    const [open, setOpen] = React.useState(false);
+function NavbarMenu({ children }) {
+    const [open, setOpen] = React.useState(null);
     return (
-        <DropdownContext.Provider value={{ open, setOpen }}>
+        <NavbarContext.Provider value={{ open, setOpen }}>
             <div className="py-4"> {/* bg-blue-400 */}
-                <nav className='justify-evenly align-middle w-fit box-border m-auto p-4 rounded-full bg-black text-white navbar-grid -z-50'>
+                <nav className='justify-evenly align-middle w-fit box-border m-auto p-4 rounded-full bg-black text-white navbar-grid z-50'>
                     <ul className="select-bar flex">
-                        <li className='dropdown'>
+                        
+
                             { children }
-                        </li>
+
+                            {/*
+                            {navbarDatas.map(({ menuLabel, href, categories }, index) => {
+                                return <NavbarButton 
+                                    key={index}
+                                    menuLabel={menuLabel}
+                                    href={href}
+                                    categories={categories}
+                                />
+                            })}
+                            */}
+
+                        
                     </ul>
                 </nav>
             </div>
-        </DropdownContext.Provider>
+        </NavbarContext.Provider>
     )
 }
 
 
+function NavbarGroup({ children, menuLabel }) {
+    return (
+        <NavbarGroupContext.Provider value={ menuLabel }>
+            <li className='dropdown'>
+                { children }
+            </li>
+        </NavbarGroupContext.Provider>
+    )
+}
 
-function DropdownButton({children, ...props}) {
-    const { open, setOpen } = React.useContext(DropdownContext);
+function NavbarButton({ children, hasDropdown, href }) {
+    const { open, setOpen } = React.useContext(NavbarContext);
+    const menuLabel = React.useContext(NavbarGroupContext);
+ 
+    if (!hasDropdown) {
+        return (
+            <Link to={href} className="dropbtn header-links">
+                { children }
+            </Link>
+        )
+    }
+
 
     function toggleOpen() {
-        setOpen(!open);
+
+        setOpen(
+            open === menuLabel
+                    ? null
+                    : menuLabel
+        );
+
+        {/*setOpen(!open);*/}
     };
 
-    return (
-        <button onClick={toggleOpen} className='dropbtn header-links'>
-            { children }
-        </button>
+    return ( 
+        <>
+                  
+                <button
+                    onClick={toggleOpen}
+                    className="dropbtn header-links"
+                >
+                    {children}
+                </button>
+            
+        </>
     )
 }
 
 
-function DropdownContent({ children }) {
-    const { open } = React.useContext(DropdownContext);
+function NavbarContent({ children }) {
+    const { open } = React.useContext(NavbarContext);
+    const menuLabel = React.useContext(NavbarGroupContext);
 
     return (
-        <div className={`dropdown-content ${open ? "block" : "hidden"}`}>
+        <div className={`dropdown-content ${open === menuLabel ? "block" : "hidden"}`}>
             <div className='dropdown-content-row'>
                 { children }
             </div>
@@ -113,28 +146,34 @@ function DropdownContent({ children }) {
     )
 }
 
-function DropdownList({ children, ...props }) {
-    const { setOpen } = React.useContext(DropdownContext);
+function NavbarList({ children, title }) {
+    const { setOpen } = React.useContext(NavbarContext);
     
     return (
-        <div onClick={() => setOpen(false)} className='dropdown-content-column'>
+        <div onClick={() => setOpen(null)} className='dropdown-content-column'>
+            { title && <h3 className="dropdown-content-title">{ title }</h3> }
             { children }
+
         </div>
     )
 }
 
-function DropdownItem({ children, ...props }) {
+function NavbarItem({ children, ...props }) {
 
     return (    
-        <button className="py-3 px-5 whitespace-nowrap hover:underline" {...props}>{ children }</button>
+        <button className="py-3 px-5 whitespace-nowrap hover:underline">
+            { children }
+        </button>
     )
 }
 
 
-Dropdown.Button = DropdownButton;
-Dropdown.Content = DropdownContent;
-Dropdown.List = DropdownList;
-Dropdown.Item = DropdownItem;
+Navbar.Menu = NavbarMenu;
+Navbar.Group = NavbarGroup;
+Navbar.Button = NavbarButton;
+Navbar.Content = NavbarContent;
+Navbar.List = NavbarList;
+Navbar.Item = NavbarItem;
 
 
 export default Navbar;

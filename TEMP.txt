@@ -34,3 +34,61 @@
                 </Route>
             </Routes>
         </BrowserRouter>
+
+
+
+
+
+
+
+
+
+
+
+
+        # Ancienne structure de Navbar
+
+
+        <>
+        
+        <Navbar.Menu>
+            <Navbar.Button menuLabel="Boutique">Boutique</Navbar.Button>
+            <Navbar.Content menuLabel="Boutique"> 
+                <Navbar.List>
+                    <Navbar.Item>Item 1</Navbar.Item>
+                    <Navbar.Item>Item 2</Navbar.Item>
+                </Navbar.List>
+            </Navbar.Content>
+            <Navbar.Button menuLabel="Magasin">Magasin</Navbar.Button>
+            <Navbar.Content menuLabel="Magasin"> 
+                <Navbar.List>
+                    <Navbar.Item>Casse-Cou 1</Navbar.Item>
+                    <Navbar.Item>Filou 2</Navbar.Item>
+                </Navbar.List>
+            </Navbar.Content>
+        </Navbar.Menu>
+
+            {/*
+            <>
+                    
+                        <button className='dropbtn header-links'>Contact</button>
+                            <div className='dropdown-content'>
+                                <div className='dropdown-content-row'>
+                                    <div className='dropdown-content-column'>
+                                        <h2>Test 1</h2>
+                                        <a href="#">Link 1</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="#">Link 3</a>
+                                    </div>
+                                    <div className='dropdown-content-column'>
+                                        <h2>Test 2</h2>
+                                        <a href="#">Link 1</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="#">Link 3</a>
+                                    </div>
+                                </div>
+
+                            </div>
+            </>
+        */}
+        </>
