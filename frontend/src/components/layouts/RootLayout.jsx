@@ -58,16 +58,13 @@ function RootLayout() {
                     <Carousel />
 
 
-                    <div className='main-viewport'>
-                        <main>
+                    <main className='main-viewport'>
 
                             <Outlet />
+                            
                             {/*<RouterProvider router={router} />*/}
 
-                        </main>
-
-
-            </div>
+                    </main>
 
                 </div>
 

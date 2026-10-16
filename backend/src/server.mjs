@@ -6,10 +6,13 @@ import express from "express";
 import fs from "node:fs";
 import { Server } from 'socket.io';
 import { fileURLToPath } from "url";
+import cors from "cors";
 
 
 // Import des informations sur la base de données PostgreSQL
 import db from'./db.js';
+
+import { listroll_home } from "./api/listroll_api.js";
 
 
 /* Récupération des variables d'environnement (dotenv)
@@ -62,10 +65,17 @@ io.on('connection', (socket) => {
 });
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+/*let corsOptions = {
+    origin : ['http://localhost:7000'],
+}*/
 
-app.use(express.static(DIST_DIR));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+/* app.use(express.static(DIST_DIR)); -------------------------------- */
+app.use('/images', express.static(join(__dirname, 'assets/jpg/numbers')));
+
 
 /*app.get('/api', (req, res) => {
     res.send(mockResponse);
@@ -73,6 +83,16 @@ app.use(express.static(DIST_DIR));
 
 
 
+
+app.get('/api/listroll-home', async (req, res) => {
+    try {
+        const results = await listroll_home();
+        res.json({results: results});
+    } catch (err) {
+        console.log("Erreur de l'API pour les actualités : ", err);
+        res.status(500).json({ error: "Impossible de récupérer les données ListRoll" });
+    }
+});
 
 
 app.get('/api/motos', async (req, res) => {
@@ -102,11 +122,19 @@ app.get('/login', (req, res) => {
     res.send("Page de login");
 })
 
+app.get('/users', (req, res) => {
+    const users = [
+        { id: 1, name: 'Pablo' },
+        { id: 2, name: 'Dora' },
+    ];
+    res.json(users);
+})
 
 
 
 app.get(/(.*)/, (req, res) => {
     res.sendFile(HTML_FILE);
+    console.log("Vous êtes sur la page d'accueil!");
     //res.render();
     //res.sendStatus(200);
     /*res.status(200).send("Bonjour depuis le serveur !");*/

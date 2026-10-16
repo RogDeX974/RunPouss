@@ -7,7 +7,7 @@ function Footer() {
             <ul className="footer-bar">
                 <a href="#" className="footer-links">Accueil</a>
                 <a href="#" className='footer-links'>Mentions légales</a>
-                <a href="#" className="footer-links">Qu'est-ce que <strong>Runpouss</strong> ?</a>
+                <a href="#" className="footer-links">Qu'est-ce que <strong>Runpouss</strong> ?</a> {/* Ajouter Portfolio ? */}
             </ul>
         </div>
     )

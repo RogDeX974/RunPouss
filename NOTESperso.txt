@@ -1,0 +1,2 @@
+
+1. Pour le changement de couleur dynamique, méthode : lecture de l'URL dans le navigateur > création d'un useState > modif. en fonction de l'URL

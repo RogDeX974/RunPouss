@@ -5,8 +5,8 @@
 @layer components {
 
     .section-context {
-        @apply text-xl font-bold text-blue-600
-               m-4 ml-0 pl-1 border-l-8 border-l-blue-400; 
+        @apply text-3xl font-bold text-blue-600
+               m-2 ml-0 pl-1 border-l-8 border-l-blue-400; 
     }
 
 

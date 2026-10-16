@@ -1,9 +1,11 @@
 
+import { useEffect, useState } from "react";
 import "../../perso.css";
 
 
 
 function ListRollCard({id, link, imgSrc, altText, title, description, width = 150, height = 100}) {
+    
     return (
         
             <li id={id}>
@@ -21,8 +23,27 @@ function ListRollCard({id, link, imgSrc, altText, title, description, width = 15
 
 
 function ListRoll() {
+
+    const [ LRDatas, setLRDatas ] = useState([]);
+
+    useEffect( () => {
+        fetch("http://localhost:8080/api/listroll-home")
+            .then((res) => res.json())
+            .then ((data) => setLRDatas(data.results))
+            .catch((err) => console.error("Impossible de récupérer les actualités : ", err))
+    }, []);
+
+
     return (
+        <>
+        
                             <ul className='list-roll'>
+
+                                {LRDatas.map((LRData) => (
+                                    <ListRollCard key={LRData.id} {...LRData} />
+                                ))}
+                                
+                                {/*
 
                                 <ListRollCard
                                     id="news-1"
@@ -70,7 +91,10 @@ function ListRoll() {
                                     altText=""
                                 />
 
+                                */}
+
                             </ul>
+        </>
     )
 }
                                 

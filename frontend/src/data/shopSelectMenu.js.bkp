@@ -1,0 +1,90 @@
+
+export const shopSelectMenu = [
+    {
+        categoryLabel: 'Motos 50cc',
+        href: '#',
+        parts: [
+            {
+                partSubLabel: 'Moteur',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+            {
+                partSubLabel: 'Echappement',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+            {
+                partSubLabel: 'Partie cycle',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+            {
+                partSubLabel: 'Transmission',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+            {
+                partSubLabel: 'Allumage',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+            {
+                partSubLabel: 'Freinage',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+            {
+                partSubLabel: 'Carénages & esthétique',
+                equipements: [
+                    { particle: 'Produit 1' },
+                    { particle: 'Produit 2' },
+                    { particle: 'Produit 3' }
+                ],
+            },
+        ],
+    },
+    {
+        categoryLabel: "Mobs'",
+            href: '#',
+            parts: []
+    },
+    {
+        categoryLabel: "Scoots",
+            href: '#',
+            parts: []
+    },
+    {
+        categoryLabel: 'Maxiscoots',
+            href: '#',
+            parts: []
+    },
+    {
+        categoryLabel: 'Motocyclettes',
+            href: '#',
+            parts: []
+    },
+    {
+        categoryLabel: 'Equipements & accessoires',
+            href: '#',
+            parts: []
+    },
+]
