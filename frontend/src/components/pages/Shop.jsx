@@ -1,14 +1,13 @@
 
-import '../../perso.css';
-
-import ShopSelectionMenu from '../elements/ShopSelectionMenu.jsx';
+import ShopProductsSelection from '../elements/ShopProductsSelection.jsx';
 
 function Shop() {
     return (
-        <div className="shop">
-            <h1>Shop</h1>
-            <ShopSelectionMenu />
-        </div>
+        <>
+            <h2 className='section-context'>Boutique</h2>
+
+            <ShopProductsSelection />
+        </>
     );
 }
 

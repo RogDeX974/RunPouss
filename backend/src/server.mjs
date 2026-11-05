@@ -59,9 +59,9 @@ const mockResponse = {
 
 io.on('connection', (socket) => {
     console.log('Connexion au serveur établie');
-    socket.on('disconnect'), () => {
+    socket.on('disconnect', () => {
         console.log("Déconnexion du serveur...");
-    };
+    });
 });
 
 
@@ -114,15 +114,15 @@ app.get('/api/motos', async (req, res) => {
 
 
 
-app.get('/error', (req, res) => {
+app.get('/api/error', (req, res) => {
     res.send('Une erreur est survenue !');
 })
 
-app.get('/login', (req, res) => {
+app.get('/api/login', (req, res) => {
     res.send("Page de login");
 })
 
-app.get('/users', (req, res) => {
+app.get('/api/users', (req, res) => {
     const users = [
         { id: 1, name: 'Pablo' },
         { id: 2, name: 'Dora' },
@@ -131,6 +131,8 @@ app.get('/users', (req, res) => {
 })
 
 
+
+app.use('/api', (req, res) => res.status(404).json({ error: 'Route inconnue' }));
 
 app.get(/(.*)/, (req, res) => {
     res.sendFile(HTML_FILE);

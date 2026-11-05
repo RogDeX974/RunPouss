@@ -1,5 +1,5 @@
 
-import '../../perso.css';
+import loupe from '../../assets/svg/magnifying-glass-outline.svg';
 
 import { useState } from "react";
 

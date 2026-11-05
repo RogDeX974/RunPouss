@@ -7,7 +7,7 @@ html, body, #root {
     
     /*background: linear-gradient(var(--bg-primary) 5%, white 30% 90%, var(--bg-primary));*/
     /*background-image: url('/home/drepower/Documents/RunPouss/frontend/src/assets/jpg/clouds.jpg');*/
-    background-color: var(--bg-alternative);
+    background-color: #c7e0ff;/*background-color: var(--bg-alternative);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -29,9 +29,14 @@ html, body, #root {
     --global-b-rad: 8px;
 
     --main-padd: 2%;
-    --main-content-height: (
+    /*--main-content-height: (
         height: fit-content;
-    )
+    )*/
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.3rem;
 }
 
 ol ul li {
@@ -252,7 +257,7 @@ nav a:hover, .dropdown:hover .dropbtn {
     top: 1rem;
 }
 
-.sidear-content {
+.sidebar-content {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -318,29 +323,22 @@ nav a:hover, .dropdown:hover .dropbtn {
 /* # Carousel # */
 
 .carousel {
-    margin: 0.25em auto;
+    margin: 0 auto;
     padding: 0;
-    border-radius: var(--global-b-rad);
+    /*border-radius: var(--global-b-rad);*/
     width: 100%; /*width: fit-content;*/
     overflow: hidden;
     /*box-shadow: 0 0 300px 1px #1a1a1a;*/
-    transform: scale(0.9); 
+    /*transform: scale(0.9);                    < - - - | */ box-shadow: 0 0 50px #6f6f6f; background-color: #dfcfff4f;
     /*border: 5px solid red;*/
 
     min-width: 0;
     max-width: 100%;
     contain: inline-size;
+    /*grid-column: 1 / -1;*/
 }
 .carousel::-webkit-scrollbar {
     display: none;
-}
-
-.group {
-    display: flex;
-    width: max-content;
-    gap: 3em;
-    padding: 2em;
-    /*border: 2px solid green;*/
 }
 
 .track {
@@ -358,12 +356,20 @@ nav a:hover, .dropdown:hover .dropbtn {
     /*border-color: #4c2ed3;border-style: ridge;border-width: 5px; border: 2px solid blue;*/
 }
 
+.group {
+    display: flex;
+    width: max-content;
+    gap: 3em;
+    padding: 1.5em;
+    /*border: 2px solid green;*/
+}
+
 .card {
     flex: 0 0 auto;
     align-items: center; 
     justify-content: center; 
     width: 275.7px;/*width: 327px; */                                                                              
-    height: 350px;/*height: 5em;*/
+    height: 300px;/*height: 5em;*/
     background: cornflowerblue;
     font-size: 1rem;
     border-radius: 25px;
@@ -386,7 +392,7 @@ nav a:hover, .dropdown:hover .dropbtn {
 
 .main-viewport {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
 
     /*float: left;*/
@@ -396,10 +402,23 @@ nav a:hover, .dropdown:hover .dropbtn {
     width: 100%;
     border: 2px solid red;
     text-align: justify;
+
+    /*padding: 0.5rem;*/
 }
 .main-viewport div > p {
     padding: 1.25%;
 }
+
+.with-sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .with-sidebar { grid-template-columns: minmax(0, 1fr); }  /* sidebar sous le contenu */
+}
+
 
 
 /* MainHome.jsx (page principale) + MainForum.jsx */
@@ -412,13 +431,11 @@ nav a:hover, .dropdown:hover .dropbtn {
     margin: 0;
     padding: 1.25% 2%;
     align-content: baseline;
-    /*height: var(--main-content-height);*/
     /*width: 67%; width: 75%;*/
 }
 
 
 .wide-img {
-    grid-column: 1 / -1;
     box-sizing: border-box;
     border: 4px solid var(--bg-alternative);
 }
@@ -456,3 +473,42 @@ input[type=text]::placeholder {
 
 /* ############# */
 
+
+
+/* ### SHOP PRODUCTS SELECTION ### */
+.sps-strip {
+    display: flex;
+    /*background-color: lightgray;*/
+    width: auto;
+    height: 300px;
+    align-items: center;
+
+
+    min-width: 0;
+    margin: 0;
+    padding: 1rem;
+    /*border: 2px solid red;*/
+    box-sizing: border-box;
+    flex-direction: row;
+    gap: 1em;
+
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+}
+.sps-strip li { flex: 0 0 auto; scroll-snap-align: start; }
+
+
+.sps-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    cursor: pointer;
+    /*border-radius: var(--global-b-rad); border: 2px solid var(--bg-secondary);*/
+    /*background: radial-gradient(lightgray 0%, white 66%);*/
+}
+.sps-item img {
+    background: radial-gradient(lightgray 0%, white 66%);
+}

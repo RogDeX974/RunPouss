@@ -1,6 +1,5 @@
 
 import SearchBar from '../elements/SearchBar.jsx';
-import '../../perso.css';
 
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
@@ -42,7 +41,7 @@ function Header() {
 
             {/* Bandeau principal */}
 
-                <header className={`flex justify-center items-center p-10 m-5 w-fit h-32 min-w-64 bg-gradient-to-r text-white rounded-[15px] ${headerColor} header-brand`}> {/* from-slate-700 to-blue-400 */}
+                <header className={`flex justify-center items-center p-8 m-5 w-fit h-28 min-w-64 bg-gradient-to-r text-white rounded-[15px] ${headerColor} header-brand`}> {/* from-slate-700 to-blue-400 */}
                     <Link to="/home" className="text-3xl font-bold text-teal-500">RunPouss</Link>
                 
                     {/* Barre de séparation */}

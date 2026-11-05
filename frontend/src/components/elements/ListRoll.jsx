@@ -1,8 +1,5 @@
 
 import { useEffect, useState } from "react";
-import "../../perso.css";
-
-
 
 function ListRollCard({id, link, imgSrc, altText, title, description, width = 150, height = 100}) {
     

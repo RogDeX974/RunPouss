@@ -1,6 +1,4 @@
 import React from "react";
-import './styles.css';
-import './perso.css';
  
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
  

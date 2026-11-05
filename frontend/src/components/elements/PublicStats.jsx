@@ -1,6 +1,4 @@
 
-import "../../perso.css";
-
 function PublicStats() {
     return (
         <div className="public-stats">

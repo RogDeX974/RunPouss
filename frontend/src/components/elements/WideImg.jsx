@@ -1,6 +1,4 @@
 
-import '../../perso.css';
-
 function WideImg() {
     return (
                     <div className='wide-img'>

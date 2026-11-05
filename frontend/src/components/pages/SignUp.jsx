@@ -1,6 +1,4 @@
 
-import '../../perso.css';
-
 function SignUp() {
     return
 }
